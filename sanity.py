@@ -27,6 +27,9 @@ def sanity():
     assert not fw.accept_packet("inbound", "gibberish", 80, "192.168.1.2")
     assert not fw.accept_packet("inbound", "tcp", "gibberish", "192.168.1.2")
     assert not fw.accept_packet("inbound", "tcp", 80, "192.1.2")
+    assert not fw.accept_packet("inbound", "tcp", 0, "192.168.1.2")
+    assert not fw.accept_packet("inbound", "tcp", 65536, "192.168.1.2")
+    assert not fw.accept_packet("inbound", "tcp", 65536, "192.256.1.2")
 
     print("all sanity tests pass.")
 
