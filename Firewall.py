@@ -65,6 +65,9 @@ class Firewall:
         ip = self.split_ip(ip)
         if len(ip) != 4:
             return False
+        for val in ip:
+            if val < 0 or val > 255:
+                return False
 
         # iterating through all the rules in the ruleset
         for rule_port, rule_ip in self.ruleset[direction][protocol]:
