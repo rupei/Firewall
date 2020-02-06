@@ -12,6 +12,8 @@ Before beginning to code, I wondered if instead of using an tuple/list, if I cou
 
 However, in timetest.py, I tried to see what would happen if this was attempted on the entire range of IP addresses (255^4). Not only did my machine run out of memory, but since over a billion points needed to be added, the constructor was very slow. For all practical purposes, I decided to use this iterated tuple/list approach.
 
+I also considered using a class hiearchy for the different "sub-rule sets," but realized that would probably overcomplicate what is otherwise a relatively simple problem.
+
 ## Refinements/Optimizations
 
 If I had more time, I would consider using numpy/pandas to potentially speed up my Firewall's performance. Since dealing with vanilla Python iterables can't take advantage of the parallelized methods of those libraries. If I could've done that, I would've used my current solution as a 'reference' for functionality (i.e. I could randomly generate rules and calls to accept_packet and assert that the two outputs are the same).
